@@ -1,6 +1,5 @@
 # LinkupWeb
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.1.
+링크 관리 서비스입니다.
 
 ## Development server
 
