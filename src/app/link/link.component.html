@@ -1,0 +1,23 @@
+<div class="red-box">
+  <ul>
+    <li *ngFor="let link of links">
+      <ng-container *ngIf="link">
+        <div>
+          {{ link.id }}
+          {{ link.link_title }}
+          {{ link.link_content }}
+          {{ link.link_address }}
+          {{link.site_user.id}}
+          {{link.site_user.username}}
+          {{link.site_user.password}}
+          {{link.site_user.email}}
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!link">
+        Not Found
+      </ng-container>
+    </li>
+  </ul>
+  <ul>
+  </ul>
+</div>

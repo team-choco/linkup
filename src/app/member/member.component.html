@@ -1,7 +1,7 @@
 <div class="red-box">
   <ul>
     <li *ngFor="let member of members">
-      <div [routerLink]="['/members',member.id]">{{member.name}}</div>
+      <div [routerLink]="['/members',member.id]">{{member.username}}</div>
 <!--      <div>{{member.name}}</div>-->
     </li>
   </ul>
