@@ -1,20 +1,49 @@
-<div class="red-box">
-  <ul>
-    <li *ngFor="let link_collection of link_collections">
-      <ng-container *ngIf="link_collection">
-        <div>
-          {{ link_collection.link_collection_id }}
-          {{ link_collection.link_collection_name }}
-          {{link_collection.link_list}}
-          {{link_collection.category}}
-        </div>
-      </ng-container>
-      <ng-container *ngIf="!link_collection">
-        Not Found
-      </ng-container>
-    </li>
-  </ul>
-  <div routerLink="/links" class ="blue-box">
-    {{link_collection_name}}
+<!--<div class="red-box">-->
+<!--  <ul>-->
+<!--    <li *ngFor="let link_collection of link_collections">-->
+<!--      <ng-container *ngIf="link_collection">-->
+<!--        <div>-->
+<!--          {{ link_collection.link_collection_id }}-->
+<!--          {{ link_collection.link_collection_name }}-->
+<!--          {{link_collection.link_list}}-->
+<!--          {{link_collection.category}}-->
+<!--        </div>-->
+<!--      </ng-container>-->
+<!--      <ng-container *ngIf="!link_collection">-->
+<!--        Not Found-->
+<!--      </ng-container>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--  <div routerLink="/links" class ="blue-box">-->
+<!--    {{link_collection_name}}-->
+<!--  </div>-->
+<!--</div>-->
+<div style="padding:30px;">
+  <div class="link_collection_name">
+<!--    <h1>{{link_collection_name}}</h1>-->
+    <h1>파이썬</h1>
+    <div class="link_collection_icon">
+      <span nz-icon nzType="plus-square" nzTheme="outline"></span>
+      <span nz-icon nzType="share-alt" nzTheme="outline"></span>
+    </div>
+    </div>
+
+  <div nz-row [nzGutter]="8">
+    <div nz-col [nzSpan]="8">
+<!--      <nz-card nzTitle="Card title">-->
+      <nz-card nzTitle={{link_collection_name}}>
+        <p>Card content</p>
+      </nz-card>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="Card title">
+        <p>Card content</p>
+      </nz-card>
+    </div>
+    <div nz-col [nzSpan]="8">
+      <nz-card nzTitle="Card title">
+        <p>Card content</p>
+      </nz-card>
+    </div>
   </div>
 </div>

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {IconService} from "@ant-design/icons-angular";
+import {AccountBookFill} from "@ant-design/icons-angular/icons";
 
 @Component({
   selector: 'app-root',

@@ -17,6 +17,16 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { IconsProviderModule } from './icons-provider.module';
 import { NzLayoutModule } from 'ng-zorro-antd/layout';
 import { NzMenuModule } from 'ng-zorro-antd/menu';
+import {NzCardModule} from "ng-zorro-antd/card";
+import {NzFormModule} from "ng-zorro-antd/form";
+import {NzIconModule} from "ng-zorro-antd/icon";
+import {IconDefinition, IconModule} from '@ant-design/icons-angular';
+import {NzPopoverModule} from "ng-zorro-antd/popover";
+
+import { MenuFoldOutline, MenuUnfoldOutline, PlusSquareOutline, ShareAltOutline, EllipsisOutline } from '@ant-design/icons-angular/icons';
+
+const icons: IconDefinition[] = [ MenuFoldOutline, MenuUnfoldOutline, PlusSquareOutline, ShareAltOutline, EllipsisOutline ];
+// <span nz-icon nzType="plus-square" nzTheme="outline"></span>
 
 registerLocaleData(en);
 
@@ -37,6 +47,10 @@ registerLocaleData(en);
     IconsProviderModule,
     NzLayoutModule,
     NzMenuModule,
+    NzCardModule,
+    NzFormModule,
+    NzPopoverModule,
+    NzIconModule.forRoot(icons),
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

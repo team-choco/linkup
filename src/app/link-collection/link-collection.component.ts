@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {LinkCollectionService} from "./link-collection.service";
 import {LinkCollection} from "./link-collection.types";
 
+
 @Component({
   selector: 'app-link-collection',
   templateUrl: './link-collection.component.html',
