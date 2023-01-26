@@ -1,21 +1,12 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import {MemberComponent} from "./member/member.component";
-import {MemberDetailComponent} from "./member/member-detail/member-detail.component";
+import { Routes, RouterModule } from '@angular/router';
 import {LinkComponent} from "./link/link.component";
 
-
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: '/welcome' },
+  { path: 'welcome', loadChildren: () => import('./pages/welcome/welcome.module').then(m => m.WelcomeModule) },
   {
-    path: "members",
-    component:MemberComponent,
-    children:[
-      {path:":id", component:MemberDetailComponent}
-    ]
-  },
-  {
-    path:"links",
-    component:LinkComponent,
+    path: "links", component: LinkComponent
   }
 ];
 
@@ -23,6 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-
-}
+export class AppRoutingModule { }

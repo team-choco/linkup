@@ -1,0 +1,20 @@
+<div class="red-box">
+  <ul>
+    <li *ngFor="let link_collection of link_collections">
+      <ng-container *ngIf="link_collection">
+        <div>
+          {{ link_collection.link_collection_id }}
+          {{ link_collection.link_collection_name }}
+          {{link_collection.link_list}}
+          {{link_collection.category}}
+        </div>
+      </ng-container>
+      <ng-container *ngIf="!link_collection">
+        Not Found
+      </ng-container>
+    </li>
+  </ul>
+  <div routerLink="/links" class ="blue-box">
+    {{link_collection_name}}
+  </div>
+</div>
