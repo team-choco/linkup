@@ -22,6 +22,8 @@ import {NzFormModule} from "ng-zorro-antd/form";
 import {NzIconModule} from "ng-zorro-antd/icon";
 import {IconDefinition, IconModule} from '@ant-design/icons-angular';
 import {NzPopoverModule} from "ng-zorro-antd/popover";
+import { NzModalModule } from 'ng-zorro-antd/modal';
+import { MessagesComponent } from './messages/messages.component';
 
 import { MenuFoldOutline, MenuUnfoldOutline, PlusSquareOutline, ShareAltOutline, EllipsisOutline } from '@ant-design/icons-angular/icons';
 
@@ -37,6 +39,7 @@ registerLocaleData(en);
     MemberDetailComponent,
     LinkComponent,
     LinkCollectionComponent,
+    MessagesComponent,
   ],
   imports: [
     BrowserModule,
@@ -51,6 +54,7 @@ registerLocaleData(en);
     NzFormModule,
     NzPopoverModule,
     NzIconModule.forRoot(icons),
+    NzModalModule,
   ],
   providers: [
     { provide: NZ_I18N, useValue: en_US }

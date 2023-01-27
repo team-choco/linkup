@@ -3,21 +3,38 @@
     <li *ngFor="let link of links">
       <ng-container *ngIf="link">
         <div>
-          {{ link.id }}
+          {{ link.link_id }}
           {{ link.link_title }}
           {{ link.link_content }}
           {{ link.link_address }}
-          {{ link.site_user.id }}
-          {{link.site_user.username}}
-          {{link.site_user.password}}
-          {{link.site_user.email}}
         </div>
+        <button type="button" class="delete" title="delete" (click)="delete(link)">x</button>
       </ng-container>
       <ng-container *ngIf="!link">
         Not Found
       </ng-container>
     </li>
   </ul>
-  <ul>
-  </ul>
+  <button type="button" (click)="showModal()">add</button>
+
+  <nz-modal
+    [(nzVisible)]="isVisible"
+    nzTitle="링크 추가"
+    (nzOnCancel)="handleCancel()"
+    (nzOnOk)="handleOk()"
+    [nzOkLoading]="isOkLoading"
+  >
+    <div *nzModalContent>
+      <input nz-input placeholder="title" [(ngModel)]="title" class="input" #link_title/>
+      <br />
+      <input nz-input placeholder="address" [(ngModel)]="address" class="input" #link_address/>
+      <br />
+      <textarea rows="4" nz-input placeholder="content"[(ngModel)]="content" class="input" #link_content></textarea>
+
+      <button type="button" class="add-button"
+              (click)="create(link_title.value, link_address.value, link_content.value);">
+        확인
+      </button>
+    </div>
+  </nz-modal>
 </div>
