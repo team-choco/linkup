@@ -5,5 +5,4 @@ export interface LinkCollection{
   link_collection_id: number;
   link_collection_name: string;
   link_list: Link[];
-  category: Member;
 }

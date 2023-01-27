@@ -9,7 +9,7 @@
       <img routerLink="/" class="logo" src="/assets/logo.svg" alt="logo">
     </div>
     <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-      <div class="profile">
+        <div class="profile">
         <div>
           <img class ="profile-logo" src="/assets/profile.jpg" alt="logo">
         </div>
@@ -27,12 +27,11 @@
       </li>
       <li nz-submenu nzOpen nzTitle="내 링크" nzIcon="form">
         <ul>
-          <li nz-submenu nzOpen nzTitle="공부" nzIcon="dashboard">
+          <li nz-submenu nzOpen nzTitle="쇼핑몰" nzIcon="dashboard">
             <ul>
               <li routerLink="/link-collections" nz-menu-item nzMatchRouter>
                 <div>
-                  <!--{{link_collection_name}}-->
-                  파이썬
+                  TOP
                   <span
                     nz-popover
                     [nzPopoverContent]="contentTemplate"
@@ -74,4 +73,3 @@
     <p>카테고리 삭제</p>
   </div>
 </ng-template>
-

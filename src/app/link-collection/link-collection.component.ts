@@ -1,6 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {LinkCollectionService} from "./link-collection.service";
 import {LinkCollection} from "./link-collection.types";
+import {LinkComponent} from "../link/link.component";
+import {LinkService} from "../link/link.service";
+import {Link} from "../link/link.types";
 
 
 @Component({
@@ -10,7 +13,6 @@ import {LinkCollection} from "./link-collection.types";
 })
 export class LinkCollectionComponent implements OnInit{
 
-  link_collection_name : string = "링크모음 이름";
   link_collections : LinkCollection[] =[];
   constructor(private linkCollectionService: LinkCollectionService) {
   }

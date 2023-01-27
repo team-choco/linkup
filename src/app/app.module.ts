@@ -36,7 +36,7 @@ registerLocaleData(en);
     MemberComponent,
     MemberDetailComponent,
     LinkComponent,
-    LinkCollectionComponent
+    LinkCollectionComponent,
   ],
   imports: [
     BrowserModule,
