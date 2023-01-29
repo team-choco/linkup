@@ -1,4 +1,30 @@
 <div class="red-box">
+  <div class="link_collection_icon">
+    <span nz-icon nzType="plus-square" nzTheme="outline" (click)="showModal()"></span>
+    <span nz-icon nzType="share-alt" nzTheme="outline"></span>
+  </div>
+  <div>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="링크 추가"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()"
+      [nzOkLoading]="isOkLoading"
+    >
+      <div *nzModalContent>
+        <input nz-input placeholder="title" [(ngModel)]="title" class="input" #link_title/>
+        <br />
+        <input nz-input placeholder="address" [(ngModel)]="address" class="input" #link_address/>
+        <br />
+        <textarea rows="4" nz-input placeholder="content"[(ngModel)]="content" class="input" #link_content></textarea>
+
+        <button type="button" class="add-button"
+                (click)="create(link_title.value, link_address.value, link_content.value);">
+          확인
+        </button>
+      </div>
+    </nz-modal>
+  </div>
   <ul>
     <li *ngFor="let link of links">
       <ng-container *ngIf="link">
@@ -15,26 +41,5 @@
       </ng-container>
     </li>
   </ul>
-  <button type="button" (click)="showModal()">add</button>
 
-  <nz-modal
-    [(nzVisible)]="isVisible"
-    nzTitle="링크 추가"
-    (nzOnCancel)="handleCancel()"
-    (nzOnOk)="handleOk()"
-    [nzOkLoading]="isOkLoading"
-  >
-    <div *nzModalContent>
-      <input nz-input placeholder="title" [(ngModel)]="title" class="input" #link_title/>
-      <br />
-      <input nz-input placeholder="address" [(ngModel)]="address" class="input" #link_address/>
-      <br />
-      <textarea rows="4" nz-input placeholder="content"[(ngModel)]="content" class="input" #link_content></textarea>
-
-      <button type="button" class="add-button"
-              (click)="create(link_title.value, link_address.value, link_content.value);">
-        확인
-      </button>
-    </div>
-  </nz-modal>
 </div>
