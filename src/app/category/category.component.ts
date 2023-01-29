@@ -12,7 +12,6 @@ import {CategoryService} from "./category.service";
 export class CategoryComponent implements OnInit{
   categories : Category[]=[];
   link_collections : LinkCollection[]=[];
-
   constructor(private categoryService:CategoryService, private  linkCollectionService:LinkCollectionService) {
   }
 

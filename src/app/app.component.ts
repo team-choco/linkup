@@ -8,5 +8,4 @@ import {AccountBookFill} from "@ant-design/icons-angular/icons";
   styleUrls: ['./app.component.less']
 })
 export class AppComponent {
-  isCollapsed = false;
 }
