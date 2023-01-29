@@ -1,0 +1,12 @@
+<ng-container *ngIf="member">
+  <div>
+    id : {{member.id}}
+  </div>
+  <div>
+    name : {{member.username}}
+  </div>
+</ng-container>
+
+<ng-container *ngIf="!member">
+  Not Found!!
+</ng-container>
