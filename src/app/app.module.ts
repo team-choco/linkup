@@ -26,6 +26,7 @@ import { NzModalModule } from 'ng-zorro-antd/modal';
 import { MessagesComponent } from './messages/messages.component';
 
 import { MenuFoldOutline, MenuUnfoldOutline, PlusSquareOutline, ShareAltOutline, EllipsisOutline } from '@ant-design/icons-angular/icons';
+import { CategoryComponent } from './category/category.component';
 
 const icons: IconDefinition[] = [ MenuFoldOutline, MenuUnfoldOutline, PlusSquareOutline, ShareAltOutline, EllipsisOutline ];
 // <span nz-icon nzType="plus-square" nzTheme="outline"></span>
@@ -40,6 +41,7 @@ registerLocaleData(en);
     LinkComponent,
     LinkCollectionComponent,
     MessagesComponent,
+    CategoryComponent,
   ],
   imports: [
     BrowserModule,

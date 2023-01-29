@@ -1,0 +1,63 @@
+<nz-sider class="menu-sidebar"
+          nzCollapsible
+          nzWidth="256px"
+          nzBreakpoint="md"
+          [nzTrigger]="null">
+  <div class="sidebar-logo">
+    <img routerLink="/" class="logo" src="/assets/logo.svg" alt="logo">
+  </div>
+  <ul nz-menu nzTheme="dark" nzMode="inline">
+    <div class="profile">
+      <div>
+        <img class ="profile-logo" src="/assets/profile.jpg" alt="logo">
+      </div>
+      <div style="margin-top: 15px">
+        <p><b>박매니</b></p>
+        <p>manipark@kakao.com</p>
+      </div>
+    </div>
+    <li nz-submenu nzOpen nzTitle="내 그룹" nzIcon="dashboard">
+      <ul>
+        <li nz-menu-item nzMatchRouter>
+          <a routerLink="/welcome">Welcome</a>
+        </li>
+      </ul>
+    </li>
+    <li nz-submenu nzOpen nzTitle="내 링크" nzIcon="form">
+      <ul *ngFor="let category of categories">
+        <li *ngIf="category.siteUser.id==1" nz-submenu nzOpen nzTitle={{category.category_name}} nzIcon="dashboard">
+          <ul *ngFor="let link_collection of link_collections">
+            <li  *ngIf="link_collection.category.categoryId==category.categoryId" nz-menu-item nzMatchRouter>
+              <div>
+                {{link_collection.link_collection_name}}
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nz-sider>
+<!--<li nz-submenu nzOpen nzTitle="쇼핑몰" nzIcon="dashboard">-->
+<!--  <ul>-->
+<!--    <li routerLink="/link-collections" nz-menu-item nzMatchRouter>-->
+<!--      <div>-->
+<!--        TOP-->
+<!--        <span-->
+<!--          nz-popover-->
+<!--          [nzPopoverContent]="contentTemplate"-->
+<!--          nzPopoverPlacement="right"-->
+<!--        >-->
+<!--                    <span class="sidebar-icon" nz-icon nzType="ellipsis" nzTheme="outline"></span>-->
+<!--                  </span>-->
+<!--      </div>-->
+<!--    </li>-->
+<!--  </ul>-->
+<!--</li>-->
+
+<!--<ng-template #contentTemplate>-->
+<!--  <div>-->
+<!--    <p>이름 수정</p>-->
+<!--    <p>링크모음 삭제</p>-->
+<!--  </div>-->
+<!--</ng-template>-->

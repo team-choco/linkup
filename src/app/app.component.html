@@ -1,52 +1,5 @@
 <nz-layout class="app-layout">
-  <nz-sider class="menu-sidebar"
-            nzCollapsible
-            nzWidth="256px"
-            nzBreakpoint="md"
-            [(nzCollapsed)]="isCollapsed"
-            [nzTrigger]="null">
-    <div class="sidebar-logo">
-      <img routerLink="/" class="logo" src="/assets/logo.svg" alt="logo">
-    </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline" [nzInlineCollapsed]="isCollapsed">
-        <div class="profile">
-        <div>
-          <img class ="profile-logo" src="/assets/profile.jpg" alt="logo">
-        </div>
-        <div style="margin-top: 15px">
-          <p><b>박매니</b></p>
-          <p>manipark@kakao.com</p>
-        </div>
-      </div>
-      <li nz-submenu nzOpen nzTitle="내 그룹" nzIcon="dashboard">
-        <ul>
-          <li nz-menu-item nzMatchRouter>
-            <a routerLink="/welcome">Welcome</a>
-          </li>
-        </ul>
-      </li>
-      <li nz-submenu nzOpen nzTitle="내 링크" nzIcon="form">
-        <ul>
-          <li nz-submenu nzOpen nzTitle="쇼핑몰" nzIcon="dashboard">
-            <ul>
-              <li routerLink="/link-collections" nz-menu-item nzMatchRouter>
-                <div>
-                  TOP
-                  <span
-                    nz-popover
-                    [nzPopoverContent]="contentTemplate"
-                    nzPopoverPlacement="right"
-                  >
-                    <span class="sidebar-icon" nz-icon nzType="ellipsis" nzTheme="outline"></span>
-                  </span>
-                </div>
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nz-sider>
+  <app-category></app-category>
   <nz-layout>
     <nz-header>
       <div class="app-header">
@@ -65,11 +18,3 @@
     </nz-content>
   </nz-layout>
 </nz-layout>
-
-<ng-template #contentTemplate>
-  <div>
-    <p>링크 모음 추가</p>
-    <p>이름 수정</p>
-    <p>카테고리 삭제</p>
-  </div>
-</ng-template>
