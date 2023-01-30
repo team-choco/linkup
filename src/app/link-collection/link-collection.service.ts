@@ -1,23 +1,26 @@
-import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {MessageService} from "../messages/message.service";
 import {Observable, of, tap} from "rxjs";
 import {LinkCollection} from "./link-collection.types";
+import {Injectable} from "@angular/core";
 import {catchError} from "rxjs/operators";
-import {MessageService} from "../messages/message.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class LinkCollectionService {
 
+
   constructor(
-    private httpClient:HttpClient,
+    private httpClient: HttpClient,
     private messageService: MessageService
   ) {
   }
+
   private log(message: string) {
     this.messageService.add(`LinkService: ${message}`);
   }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 
@@ -31,17 +34,17 @@ export class LinkCollectionService {
       return of(result as T);
     };
   }
+
   httpOptions = {
-    headers: new HttpHeaders({ 'Content-Type': 'application/json'})
+    headers: new HttpHeaders({'Content-Type': 'application/json'})
   };
 
-  getLinkCollections():Observable<LinkCollection[]>{
+  getLinkCollections(): Observable<LinkCollection[]> {
     return this.httpClient.get<LinkCollection[]>("http://localhost:8080/link-collections")
   }
-  deleteLinkCollection(link_collection_id: number): Observable<LinkCollection> {
-    return this.httpClient.delete<LinkCollection>(`http://localhost:8080/link-collections/${link_collection_id}`, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted link collection id=${link_collection_id}`)),
-      catchError(this.handleError<LinkCollection>('deleteLinkCollection'))
-    );
+
+  getLinkCollection(linkCollectionId: number): Observable<LinkCollection> {
+    return this.httpClient.get<LinkCollection>(`http://localhost:8080/link-collection/${linkCollectionId}`)
   }
+
 }

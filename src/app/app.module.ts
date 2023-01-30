@@ -27,6 +27,7 @@ import { MessagesComponent } from './messages/messages.component';
 
 import { PlusSquareOutline, ShareAltOutline, EllipsisOutline } from '@ant-design/icons-angular/icons';
 import { CategoryComponent } from './category/category.component';
+import { LinkCollectionDetailComponent } from './link-collection/link-collection-detail/link-collection-detail.component';
 
 const icons: IconDefinition[] = [ PlusSquareOutline, ShareAltOutline, EllipsisOutline ];
 
@@ -41,6 +42,7 @@ registerLocaleData(en);
     LinkCollectionComponent,
     MessagesComponent,
     CategoryComponent,
+    LinkCollectionDetailComponent,
   ],
   imports: [
     BrowserModule,

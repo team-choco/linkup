@@ -12,7 +12,9 @@ import {CategoryService} from "./category.service";
 export class CategoryComponent implements OnInit{
   categories : Category[]=[];
   link_collections : LinkCollection[]=[];
-  constructor(private categoryService:CategoryService, private  linkCollectionService:LinkCollectionService) {
+  constructor(
+    private categoryService:CategoryService,
+    private linkCollectionService:LinkCollectionService) {
   }
 
   ngOnInit() :void{
@@ -26,4 +28,14 @@ export class CategoryComponent implements OnInit{
       })
   }
 
+  visible: boolean = false;
+
+  delete(link_collection:LinkCollection): void {
+    this.link_collections = this.link_collections.filter(h => h !== link_collection);
+    this.categoryService.deleteLinkCollection(link_collection.linkCollectionId).subscribe();
+  }
+
+  change(value: boolean): void {
+    console.log(value);
+  }
 }
