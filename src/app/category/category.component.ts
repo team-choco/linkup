@@ -25,4 +25,5 @@ export class CategoryComponent implements OnInit{
         this.link_collections=response;
       })
   }
+
 }

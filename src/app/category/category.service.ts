@@ -1,8 +1,11 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable, of, tap} from "rxjs";
 import {LinkCollection} from "../link-collection/link-collection.types";
 import {Category} from "./category.types";
+import {Link} from "../link/link.types";
+import {catchError} from "rxjs/operators";
+import {MessageService} from "../messages/message.service";
 
 @Injectable({
   providedIn: 'root'
@@ -19,4 +22,5 @@ export class CategoryService {
   getLinkCollections():Observable<LinkCollection[]>{
     return this.httpClient.get<LinkCollection[]>("http://localhost:8080/link-collections")
   }
+
 }

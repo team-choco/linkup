@@ -23,5 +23,14 @@ export class LinkCollectionComponent implements OnInit{
         this.link_collections=response;
       })
   }
+  visible: boolean = false;
 
+  delete(link_collection:LinkCollection): void {
+    this.link_collections = this.link_collections.filter(h => h !== link_collection);
+    this.linkCollectionService.deleteLinkCollection(link_collection.link_collection_id).subscribe();
+  }
+
+  change(value: boolean): void {
+    console.log(value);
+  }
 }
