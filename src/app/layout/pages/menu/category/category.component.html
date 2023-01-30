@@ -1,0 +1,114 @@
+<ul>
+  <div nz-menu
+       *ngFor="let category of categories"
+       nzMode="inline"
+  >
+    <li nz-submenu
+        *ngIf="category.siteUser.id==1"
+        [nzTitle]="category.categoryName"
+        nzOpen
+    >
+      <ul *ngFor="let linkCollection of linkCollections">
+        <li
+          nz-menu-item
+          *ngIf="linkCollection.category.categoryId==category.categoryId"
+          nzMatchRouter
+          [routerLink]="['/link-collections',linkCollection.linkCollectionId]"
+        >
+          <a
+            nz-popover
+            [(nzPopoverVisible)]="visible"
+            (nzPopoverVisibleChange)="change($event)"
+            nzPopoverTrigger="click"
+            nzPopoverPlacement="right"
+            [nzPopoverContent]="menuTemplate"
+          >
+            ...
+          </a>
+          <ng-template #menuTemplate>
+            <div>이름 수정</div>
+            <br/>
+            <a (click)="delete(linkCollection)">링크 모음 삭제</a>
+          </ng-template>
+            {{linkCollection.linkCollectionName}}
+        </li>
+      </ul>
+    </li>
+  </div>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<ul nz-menu nzMode="inline">-->
+<!--  <li nz-submenu-->
+<!--      *ngFor="let category of categories"-->
+
+<!--      [nzTitle]="category.categoryName"-->
+<!--      nzOpen-->
+<!--  >-->
+<!--    <ul>-->
+<!--      <li nz-menu-group-->
+<!--          *ngFor="let linkCollection of category.linkCollectionList"-->
+<!--          [nzTitle]="linkCollection.linkCollectionName"-->
+<!--          [routerLink]="['/link-collections',linkCollection.linkCollectionId]"-->
+<!--      >-->
+<!--        <a-->
+<!--          nz-popover-->
+<!--          [(nzPopoverVisible)]="visible"-->
+<!--          (nzPopoverVisibleChange)="change($event)"-->
+<!--          nzPopoverTrigger="click"-->
+<!--          nzPopoverPlacement="right"-->
+<!--          [nzPopoverContent]="menuTemplate"-->
+<!--        >-->
+<!--          ...-->
+<!--        </a>-->
+<!--        <ng-template #menuTemplate>-->
+<!--          <div>이름 수정</div>-->
+<!--          <br/>-->
+<!--          <a (click)="delete(linkCollection)">링크 모음 삭제</a>-->
+<!--        </ng-template>-->
+<!--      </li>-->
+<!--    </ul>-->
+<!--  </li>-->
+<!--</ul>-->
+
+
+
+<!--<ul nz-menu nzMode="inline" *ngFor="let category of categories">-->
+<!--  <li *ngIf="category.siteUser.id==1" nz-submenu nzOpen nzTitle={{category.category_name}}>-->
+<!--    <ul *ngFor="let link_collection of link_collections">-->
+<!--      <li *ngIf="link_collection.category.categoryId==category.categoryId" nz-menu-item nzMatchRouter>-->
+<!--        <div [routerLink]="['/link-collection',link_collection.linkCollectionId]">-->
+<!--          {{link_collection.link_collection_name}}-->
+<!--        </div>-->
+<!--      </li>-->
+<!--      <a class="popover"-->
+<!--         nz-popover-->
+<!--         [(nzPopoverVisible)]="visible"-->
+<!--         (nzPopoverVisibleChange)="change($event)"-->
+<!--         nzPopoverTrigger="click"-->
+<!--         nzPopoverPlacement="right"-->
+<!--         [nzPopoverContent]="contentTemplate"-->
+<!--      >-->
+<!--        ...-->
+<!--      </a>-->
+<!--      <ng-template #contentTemplate>-->
+<!--        <div>이름 수정</div>-->
+<!--        <br/>-->
+<!--        <a (click)="delete(link_collection)">링크 모음 삭제</a>-->
+<!--      </ng-template>-->
+<!--    </ul>-->
+
+<!--  </li>-->
+<!--</ul>-->

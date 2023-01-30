@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable, of, tap} from "rxjs";
-import {LinkCollection} from "../link-collection/link-collection.types";
+import {LinkCollection} from "../../../../link-collection/link-collection.types";
 import {Category} from "./category.types";
 import {catchError} from "rxjs/operators";
-import {MessageService} from "../messages/message.service";
+import {MessageService} from "../../../../messages/message.service";
 
 @Injectable({
   providedIn: 'root'
@@ -46,9 +46,9 @@ export class CategoryService {
     return this.httpClient.get<LinkCollection[]>("http://localhost:8080/link-collections")
   }
 
-  deleteLinkCollection(link_collection_id: number): Observable<LinkCollection> {
-    return this.httpClient.delete<LinkCollection>(`http://localhost:8080/link-collections/${link_collection_id}`, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted link collection id=${link_collection_id}`)),
+  deleteLinkCollection(linkCollectionId: number): Observable<LinkCollection> {
+    return this.httpClient.delete<LinkCollection>(`http://localhost:8080/link-collections/${linkCollectionId}`, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted link collection id=${linkCollectionId}`)),
       catchError(this.handleError<LinkCollection>('deleteLinkCollection'))
     );
   }

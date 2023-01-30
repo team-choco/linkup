@@ -1,30 +1,69 @@
 import {Component, OnInit} from '@angular/core';
 import {LinkCollectionService} from "./link-collection.service";
 import {LinkCollection} from "./link-collection.types";
-import {LinkComponent} from "../link/link.component";
 import {LinkService} from "../link/link.service";
 import {Link} from "../link/link.types";
-import {Category} from "../category/category.types";
-
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-link-collection',
   templateUrl: './link-collection.component.html',
   styleUrls: ['./link-collection.component.less']
 })
-export class LinkCollectionComponent implements OnInit{
+export class LinkCollectionComponent{
+  links: Link[] = [];
+  linkCollection: LinkCollection | undefined;
 
-  link_collections : LinkCollection[] =[];
-  categories: Category[]=[];
-  constructor(private linkCollectionService: LinkCollectionService) {
+  title?: string;
+  address?: string;
+  content?:string;
+
+  constructor(
+    private linkCollectionService : LinkCollectionService,
+    private linkService : LinkService,
+    private route: ActivatedRoute,
+  ) {
+    this.route.params.subscribe(params => {
+      this.linkCollectionService.getLinkCollection(+params['linkCollectionId'])
+        .subscribe(response => {
+          this.linkCollection = response;
+        })
+    });
   }
 
-  ngOnInit() : void{
-    this.linkCollectionService.getLinkCollections()
-      .subscribe(response=>{
-        this.link_collections=response;
-      })
+  isVisible = false;
+  isOkLoading = false;
 
+  showModal(): void {
+    this.isVisible = true;
+  }
+
+  create(linkTitle: string, linkAddress: string, linkContent: string): void {
+    linkTitle = linkTitle.trim();
+    linkAddress = linkAddress.trim();
+    linkContent = linkContent.trim();
+    if (!linkTitle || !linkAddress ) { return; }
+    this.linkService.createLink({ linkTitle, linkAddress, linkContent } as Link)
+      .subscribe(link => {
+        this.links.push(link);
+      });
+  }
+
+  handleOk(): void {
+    this.isVisible = true;
+    setTimeout(() => {
+      this.isVisible = false;
+      this.isOkLoading = false;
+    }, 1000);
+  }
+
+  handleCancel(): void {
+    this.isVisible = false;
+  }
+
+  delete(link: Link): void {
+    this.links = this.links.filter(h => h !== link);
+    this.linkService.deleteLink(link.linkId).subscribe();
   }
 
 }

@@ -1,2 +1,46 @@
+<div>
+  <div class="link_collection_icon">
+    <span nz-icon nzType="plus-square" nzTheme="outline" (click)="showModal()"></span>
+    <span nz-icon nzType="share-alt" nzTheme="outline"></span>
+  </div>
+  <div>
+    <nz-modal
+      [(nzVisible)]="isVisible"
+      nzTitle="링크 추가"
+      (nzOnCancel)="handleCancel()"
+      (nzOnOk)="handleOk()"
+      [nzOkLoading]="isOkLoading"
+    >
+      <div *nzModalContent>
+        <input nz-input placeholder="title" [(ngModel)]="title" class="input" #linkTitle/>
+        <br />
+        <input nz-input placeholder="address" [(ngModel)]="address" class="input" #linkAddress/>
+        <br />
+        <textarea rows="4" nz-input placeholder="content"[(ngModel)]="content" class="input" #linkContent></textarea>
+
+        <button type="button" class="add-button"
+                (click)="create(linkTitle.value, linkAddress.value, linkContent.value);">
+          확인
+        </button>
+      </div>
+    </nz-modal>
+  </div>
+  {{linkCollection?.linkCollectionName}}
+    <li *ngFor="let link of linkCollection?.linkList">
+      <ng-container *ngIf="link">
+        <div>
+          {{ link.linkId }}
+          {{ link.linkTitle }}
+          {{ link.linkContent }}
+          {{ link.linkAddress }}
+        </div>
+        <button type="button" class="delete" title="delete" (click)="delete(link)">x</button>
+      </ng-container>
+      <ng-container *ngIf="!link">
+        Not Found
+      </ng-container>
+    </li>
+
+</div>
 
 

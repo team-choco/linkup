@@ -43,14 +43,14 @@ export class LinkService {
   // }
   createLink(link: Link):Observable<Link>{
     return this.httpClient.post<Link>(`http://localhost:8080/links`, link, this.httpOptions).pipe(
-      tap((newLink: Link) => this.log(`created link w/ id=${link.link_id}`)),
+      tap((newLink: Link) => this.log(`created link w/ id=${link.linkId}`)),
       catchError(this.handleError<Link>('createLink'))
     );
   }
 
-  deleteLink(link_id: number): Observable<Link> {
-    return this.httpClient.delete<Link>(`http://localhost:8080/links/${link_id}`, this.httpOptions).pipe(
-      tap(_ => this.log(`deleted link id=${link_id}`)),
+  deleteLink(linkId: number): Observable<Link> {
+    return this.httpClient.delete<Link>(`http://localhost:8080/links/${linkId}`, this.httpOptions).pipe(
+      tap(_ => this.log(`deleted link id=${linkId}`)),
       catchError(this.handleError<Link>('deleteLink'))
     );
   }
