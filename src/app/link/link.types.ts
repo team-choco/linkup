@@ -1,9 +1,9 @@
 import {Member} from "../member/member.types";
 
 export interface Link{
-  link_id: number;
-  link_title: string;
-  link_content: string;
-  link_address: string;
+  linkId: number;
+  linkTitle: string;
+  linkContent: string;
+  linkAddress: string;
   //site_user: Member;
 }

@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {LinkCollection} from "../link-collection/link-collection.types";
-import {LinkCollectionService} from "../link-collection/link-collection.service";
+import {LinkCollection} from "../../../../link-collection/link-collection.types";
+import {LinkCollectionService} from "../../../../link-collection/link-collection.service";
 import {Category} from "./category.types";
 import {CategoryService} from "./category.service";
 
@@ -11,7 +11,7 @@ import {CategoryService} from "./category.service";
 })
 export class CategoryComponent implements OnInit{
   categories : Category[]=[];
-  link_collections : LinkCollection[]=[];
+  linkCollections : LinkCollection[]=[];
   constructor(
     private categoryService:CategoryService,
     private linkCollectionService:LinkCollectionService) {
@@ -24,15 +24,14 @@ export class CategoryComponent implements OnInit{
       })
     this.linkCollectionService.getLinkCollections()
       .subscribe(response=>{
-        this.link_collections=response;
+        this.linkCollections=response;
       })
   }
 
   visible: boolean = false;
-
-  delete(link_collection:LinkCollection): void {
-    this.link_collections = this.link_collections.filter(h => h !== link_collection);
-    this.categoryService.deleteLinkCollection(link_collection.linkCollectionId).subscribe();
+  delete(linkCollection:LinkCollection): void {
+    this.linkCollections = this.linkCollections.filter(h => h !== linkCollection);
+    this.categoryService.deleteLinkCollection(linkCollection.linkCollectionId).subscribe();
   }
 
   change(value: boolean): void {
