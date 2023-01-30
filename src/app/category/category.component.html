@@ -28,7 +28,10 @@
         <li *ngIf="category.siteUser.id==1" nz-submenu nzOpen nzTitle={{category.category_name}}>
           <ul *ngFor="let link_collection of link_collections">
             <li  *ngIf="link_collection.category.categoryId==category.categoryId" nz-menu-item nzMatchRouter>
-              <div>
+<!--              <div>-->
+<!--                {{link_collection.link_collection_name}}-->
+<!--              </div>-->
+              <div [routerLink]="['/link-collection',link_collection.linkCollectionId]">
                 {{link_collection.link_collection_name}}
               </div>
             </li>
@@ -44,8 +47,8 @@
   </nz-header>
   <nz-content>
     <div class="inner-content">
-<!--      <router-outlet></router-outlet>-->
-      <app-link-collection></app-link-collection>
+      <router-outlet></router-outlet>
     </div>
   </nz-content>
 </nz-layout>
+
