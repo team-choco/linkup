@@ -15,7 +15,7 @@ const routes: Routes = [
     ]
   },
   { path: 'links', component: LinkComponent},
-];
+  ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

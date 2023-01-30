@@ -37,6 +37,10 @@ export class LinkService {
   getLinks(): Observable<Link[]>{
     return this.httpClient.get<Link[]>("http://localhost:8080/links")
   }
+
+  // getLinksById(id: number): Observable<Link[]>{
+  //   return this.httpClient.get<Link[]>(`http://localhost:8080/links/${id}`)
+  // }
   createLink(link: Link):Observable<Link>{
     return this.httpClient.post<Link>(`http://localhost:8080/links`, link, this.httpOptions).pipe(
       tap((newLink: Link) => this.log(`created link w/ id=${link.link_id}`)),
