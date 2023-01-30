@@ -4,6 +4,8 @@ import {LinkCollection} from "./link-collection.types";
 import {LinkService} from "../link/link.service";
 import {Link} from "../link/link.types";
 import {ActivatedRoute} from "@angular/router";
+import {NzModalRef, NzModalService} from "ng-zorro-antd/modal";
+import {InputComponent} from "../input/input.component";
 
 @Component({
   selector: 'app-link-collection',
@@ -22,6 +24,7 @@ export class LinkCollectionComponent{
     private linkCollectionService : LinkCollectionService,
     private linkService : LinkService,
     private route: ActivatedRoute,
+    private modal: NzModalService,
   ) {
     this.route.params.subscribe(params => {
       this.linkCollectionService.getLinkCollection(+params['linkCollectionId'])
@@ -57,6 +60,7 @@ export class LinkCollectionComponent{
     }, 1000);
   }
 
+
   handleCancel(): void {
     this.isVisible = false;
   }
@@ -65,5 +69,17 @@ export class LinkCollectionComponent{
     this.links = this.links.filter(h => h !== link);
     this.linkService.deleteLink(link.linkId).subscribe();
   }
-
+  createModal(): void {
+    const modal: NzModalRef = this.modal.create({
+      nzTitle: "링크 추가",
+      nzContent: InputComponent,
+      nzFooter: [
+        {
+          label: '추가',
+          type: 'primary',
+          onClick: () => modal.destroy()
+        }
+      ]
+    })
+  }
 }

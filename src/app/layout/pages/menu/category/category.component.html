@@ -15,22 +15,31 @@
           nzMatchRouter
           [routerLink]="['/link-collections',linkCollection.linkCollectionId]"
         >
+          {{linkCollection.linkCollectionName}}
+<!--          <a-->
+<!--            nz-popover-->
+<!--            [(nzPopoverVisible)]="visible"-->
+<!--            (nzPopoverVisibleChange)="change($event)"-->
+<!--            nzPopoverTrigger="click"-->
+<!--            nzPopoverPlacement="right"-->
+<!--            [nzPopoverContent]="menuTemplate"-->
+<!--          >-->
+<!--            ...-->
+<!--          </a>-->
           <a
             nz-popover
             [(nzPopoverVisible)]="visible"
             (nzPopoverVisibleChange)="change($event)"
             nzPopoverTrigger="click"
             nzPopoverPlacement="right"
-            [nzPopoverContent]="menuTemplate"
           >
             ...
           </a>
-          <ng-template #menuTemplate>
-            <div>이름 수정</div>
-            <br/>
-            <a (click)="delete(linkCollection)">링크 모음 삭제</a>
-          </ng-template>
-            {{linkCollection.linkCollectionName}}
+<!--          <ng-template #menuTemplate>-->
+<!--            <div>이름 수정</div>-->
+<!--            <br/>-->
+<!--            <a (click)="delete(linkCollection)">링크 모음 삭제</a>-->
+<!--          </ng-template>-->
         </li>
       </ul>
     </li>

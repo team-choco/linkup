@@ -25,14 +25,15 @@ import {NzPopoverModule} from "ng-zorro-antd/popover";
 import { NzModalModule } from 'ng-zorro-antd/modal';
 import { MessagesComponent } from './messages/messages.component';
 
-import { PlusSquareOutline, ShareAltOutline, EllipsisOutline } from '@ant-design/icons-angular/icons';
+import {PlusSquareOutline, ShareAltOutline, EllipsisOutline, DeleteOutline} from '@ant-design/icons-angular/icons';
 import { CategoryComponent } from './layout/pages/menu/category/category.component';
 import { LogoComponent } from './layout/pages/logo/logo.component';
 import {ProfileComponent} from "./layout/pages/profile/profile.component";
 import {MenuComponent} from "./layout/pages/menu/menu.component";
 import {DefaultLayoutComponent} from "./layout/default/default-layout.component";
+import { InputComponent } from './input/input.component';
 
-const icons: IconDefinition[] = [ PlusSquareOutline, ShareAltOutline, EllipsisOutline ];
+const icons: IconDefinition[] = [ PlusSquareOutline, ShareAltOutline, EllipsisOutline, DeleteOutline ];
 
 registerLocaleData(en);
 
@@ -50,6 +51,7 @@ registerLocaleData(en);
     LogoComponent,
     ProfileComponent,
     MenuComponent,
+    InputComponent,
   ],
   imports: [
     BrowserModule,
