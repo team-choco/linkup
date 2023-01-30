@@ -22,6 +22,7 @@ export class LinkCollectionComponent implements OnInit{
       .subscribe(response=>{
         this.link_collections=response;
       })
+
   }
 
 }

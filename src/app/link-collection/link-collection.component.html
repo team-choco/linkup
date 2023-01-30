@@ -2,12 +2,12 @@
   <div class="link_collection_name">
 <!--    <h1>{{link_collections[0].link_collection_name}}</h1>-->
   </div>
-  <div nz-row [nzGutter]="8">
-    <ul *ngFor="let link_collection of link_collections">
-      <li [routerLink]="['/links']" >
-        {{link_collection.link_collection_name}}
-      </li>
-    </ul>
+<!--  <div nz-row [nzGutter]="8">-->
+<!--    <ul *ngFor="let link_collection of link_collections">-->
+<!--      <li [routerLink]="['/links']" >-->
+<!--        {{link_collection.link_collection_name}}-->
+<!--      </li>-->
+<!--    </ul>-->
 <!--      <nz-card nzTitle={{link_collection.link_list[0].link_title}}>-->
 <!--        <p>{{link_collection.link_list[0].link_content}}</p>-->
 <!--        <a target="_blank" href="{{link_collection.link_list[0].link_address}}">{{ link_collection.link_list[0].link_address }}</a>-->
@@ -15,6 +15,11 @@
     <div>
       <router-outlet></router-outlet>
     </div>
+<!--  </div>-->
+</div>
+
+<div style="padding:30px;">
+  <div class="link_collection_name">
 
   </div>
 </div>
