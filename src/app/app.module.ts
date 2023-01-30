@@ -28,10 +28,15 @@ import { MessagesComponent } from './messages/messages.component';
 import { PlusSquareOutline, ShareAltOutline, EllipsisOutline } from '@ant-design/icons-angular/icons';
 import { CategoryComponent } from './category/category.component';
 import { LinkCollectionDetailComponent } from './link-collection/link-collection-detail/link-collection-detail.component';
+import { LogoComponent } from './layout/pages/logo/logo.component';
+import {DefaultLayoutComponent} from "./layout/default/default-layout.component";
+import {ProfileComponent} from "./layout/pages/profile/profile.component";
+import {MenuComponent} from "./layout/pages/menu/menu.component";
 
 const icons: IconDefinition[] = [ PlusSquareOutline, ShareAltOutline, EllipsisOutline ];
 
 registerLocaleData(en);
+
 
 @NgModule({
   declarations: [
@@ -43,6 +48,10 @@ registerLocaleData(en);
     MessagesComponent,
     CategoryComponent,
     LinkCollectionDetailComponent,
+    DefaultLayoutComponent,
+    LogoComponent,
+    ProfileComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

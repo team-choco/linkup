@@ -1,0 +1,24 @@
+<nz-layout class="app-layout">
+  <nz-sider class="menu-sidebar"
+            nzCollapsible
+            nzWidth="256px"
+            nzBreakpoint="md"
+            [nzTrigger]="null">
+    <app-logo></app-logo>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <app-profile></app-profile>
+      <app-menu></app-menu>
+    </ul>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header"></div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
+
